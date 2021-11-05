@@ -73,10 +73,14 @@ const EventsList = () => {
                     <tbody>
                         {!data.data ? 'cargando...' : data.data.map((todo, index) => (
                             <tr key={todo.idAsistencia}>
+                                <td>{todo.idEvento}</td>
                                 <td>{todo.evento}</td>
                                 <td>{todo.fecha}</td>
                                 <td>{todo.servidor}</td>
-                                <td>{todo.imageURL}</td>
+                                <td>
+                                    <img src={todo.imageURL}> 
+                                    </img>
+                                </td>
                                 {/* <td>
                                     <Button onClick={() => history.push('/report/' + todo._id)}>
                                         Ver Reporte
