@@ -30,9 +30,9 @@ const IngresarAsistencia = () => {
                     setForm({
                         ...form,
                         namefile: e.target.files[0].name,
-                        content: data,
+                        // content: data ? data.split(',')[1] : null,
+                        content: data ? data : "",
                     })
-                    console.log(data);
                 }).catch(err => {
                     console.log(err);
                 })
@@ -47,11 +47,11 @@ const IngresarAsistencia = () => {
     }
 
     const handleSubmit = () => {
-        const baseURL = process.env.REACT_APP_SERVER
+        const baseURL = process.env.REACT_APP_SERVER || "http://balanceador-r2-231361140.us-east-2.elb.amazonaws.com:3000";
         console.log(baseURL);
         axios.post(baseURL + "/addAssistence", form).then(res => {
             if (res.status === 200 && res.data) {
-                console.log(res.data);
+                // console.log(res.data.split(',')[1]);
                 history.push("/evento/asistencias");
             } else {
                 console.log("Error");

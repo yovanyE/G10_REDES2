@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 
 
 const ReporView = () => {
-    const  baseURL = process.env.REACT_APP_SERVER;
+    const  baseURL = process.env.REACT_APP_SERVER || "http://balanceador-r2-231361140.us-east-2.elb.amazonaws.com:3000";
     const { id } = useParams();
     
 
@@ -23,7 +23,12 @@ const ReporView = () => {
         const response = await fetch(baseURL+'/getOne/'+id);
     
         const responseJSON = await response.json();
-        setForm(responseJSON);
+        const data = responseJSON.message.result[0];
+        const processByGet = responseJSON.message.processByGet;
+        setForm({
+            ...data,
+            processByGet,
+        });
            
       }
       useEffect(() => {

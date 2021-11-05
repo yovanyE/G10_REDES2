@@ -6,7 +6,7 @@ import axios from 'axios';
 const ReporsList = () => {
   const history = useHistory();
   //codigo para consumir api
-  const url = process.env.REACT_APP_SERVER;
+  const url = process.env.REACT_APP_SERVER || "http://balanceador-r2-231361140.us-east-2.elb.amazonaws.com:3000";;
   const [data, setData] = useState({
     server: "",
     data: []
@@ -16,8 +16,12 @@ const ReporsList = () => {
     const response = await axios.get(url + '/getall');
     
     if(response) {
-      setData(response.data);
-      console.log(response.data);
+      const data = response.data.message.result;
+      const server = response.data.message.processByGet;
+      setData({
+        data,
+        server
+      });
     }
   }
 
@@ -49,14 +53,14 @@ const ReporsList = () => {
           </thead>
           <tbody>
             {!data.data ? 'cargando...' : data.data.map((todo, index) => (
-              <tr key={todo._id}>
+              <tr key={todo.idReport}>
                 <td>{todo.carne}</td>
                 <td>{todo.name}</td>
                 <td>{todo.course}</td>
                 <td>{todo.dateTime}</td>
                 <td>{todo.processBy}</td>
                 <td>
-                  <Button onClick={() => history.push('/report/'+todo._id)}>
+                  <Button onClick={() => history.push('/report/'+todo.carne)}>
                     Ver Reporte
                   </Button>
                 </td>

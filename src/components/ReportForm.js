@@ -20,7 +20,7 @@ const ReportForm = (props) => {
     }
 
     const handleSubmit = () => {
-        const baseURL = process.env.REACT_APP_SERVER
+        const baseURL = process.env.REACT_APP_SERVER || "http://balanceador-r2-231361140.us-east-2.elb.amazonaws.com:3000";
         axios.post(baseURL + "/addReport", form).then(res => {
             if(res.status === 200 && res.data) {
                 console.log(res.data);

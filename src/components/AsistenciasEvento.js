@@ -6,7 +6,7 @@ import axios from 'axios';
 const AsistenciasEvento = () => {
     const history = useHistory();
     //codigo para consumir api
-    const url = process.env.REACT_APP_SERVER;
+    const url = process.env.REACT_APP_SERVER || "http://balanceador-r2-231361140.us-east-2.elb.amazonaws.com:3000";
     const [data, setData] = useState({
         server: "",
         data: []
@@ -16,13 +16,13 @@ const AsistenciasEvento = () => {
 
     const fetchApi = async () => {
         const response = await axios.get(url + '/getById/' + idEvento);
-
         if (response) {
+            var data = response.data.message.result;
+            const server = response.data.message.processByGet
             setData({
-                data: response.data.message,
-                server: response.data.message && response.data.message.length > 0 ? response.data.message[0].processByGet : ""
+                data,
+                server,
             });
-            console.log(response.data);
         }
     }
 
@@ -72,11 +72,15 @@ const AsistenciasEvento = () => {
                     </thead>
                     <tbody>
                         {!data.data ? 'cargando...' : data.data.map((todo, index) => (
-                            <tr key={todo.carnet}>
+                            <tr key={todo.idAsistencia}>
+                                <td>{todo.carnet}</td>
                                 <td>{todo.estudiante}</td>
                                 <td>{todo.fecha}</td>
                                 <td>{todo.servidor}</td>
-                                <td>{todo.imageURL}</td>
+                                <td>
+                                    <img src={todo.imageURL}> 
+                                    </img>
+                                </td>
                                 {/* <td>
                                     <Button onClick={() => history.push('/report/' + todo._id)}>
                                         Ver Reporte

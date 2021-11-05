@@ -6,7 +6,7 @@ import axios from 'axios';
 const EventsList = () => {
     const history = useHistory();
     //codigo para consumir api
-    const url = process.env.REACT_APP_SERVER;
+    const url = process.env.REACT_APP_SERVER || "http://balanceador-r2-231361140.us-east-2.elb.amazonaws.com:3000";;
     const [data, setData] = useState({
         server: "",
         data: []
@@ -19,8 +19,8 @@ const EventsList = () => {
 
         if (response) {
             setData({
-                data: response.data.message,
-                server: response.data.message && response.data.message.length > 0 ? response.data.message[0].processByGet : ""
+                data: response.data.message.result,
+                server: response.data.message ? response.data.message.processByGet : ""
             });
             console.log(response.data);
         }
