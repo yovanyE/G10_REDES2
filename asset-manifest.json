@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/G10_REDES2/static/css/main.6dea0f05.chunk.css",
+    "main.js": "/G10_REDES2/static/js/main.ecaa8a87.chunk.js",
+    "main.js.map": "/G10_REDES2/static/js/main.ecaa8a87.chunk.js.map",
+    "runtime-main.js": "/G10_REDES2/static/js/runtime-main.9ffbc7d7.js",
+    "runtime-main.js.map": "/G10_REDES2/static/js/runtime-main.9ffbc7d7.js.map",
+    "static/css/2.f2512455.chunk.css": "/G10_REDES2/static/css/2.f2512455.chunk.css",
+    "static/js/2.22158c71.chunk.js": "/G10_REDES2/static/js/2.22158c71.chunk.js",
+    "static/js/2.22158c71.chunk.js.map": "/G10_REDES2/static/js/2.22158c71.chunk.js.map",
+    "static/js/3.40ba783c.chunk.js": "/G10_REDES2/static/js/3.40ba783c.chunk.js",
+    "static/js/3.40ba783c.chunk.js.map": "/G10_REDES2/static/js/3.40ba783c.chunk.js.map",
+    "index.html": "/G10_REDES2/index.html",
+    "static/css/2.f2512455.chunk.css.map": "/G10_REDES2/static/css/2.f2512455.chunk.css.map",
+    "static/css/main.6dea0f05.chunk.css.map": "/G10_REDES2/static/css/main.6dea0f05.chunk.css.map",
+    "static/js/2.22158c71.chunk.js.LICENSE.txt": "/G10_REDES2/static/js/2.22158c71.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9ffbc7d7.js",
+    "static/css/2.f2512455.chunk.css",
+    "static/js/2.22158c71.chunk.js",
+    "static/css/main.6dea0f05.chunk.css",
+    "static/js/main.ecaa8a87.chunk.js"
+  ]
+}
